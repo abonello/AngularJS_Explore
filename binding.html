@@ -57,7 +57,8 @@
                 <hr>
                 <p>This can be useful in a situation where the UI is used only to display data generated elsewhere. 
                     Here the user is not interacting with the data, ie. the data cannot be changed by the user. It is <strong>Read-Only</strong>.
-                    However the data will be updated in realtime as soon as it is modified in the models.</p>
+                    However the data will be updated in realtime as soon as it is modified in the models.<br>
+                    Note that <strong>ng-bind</strong> can be used with non-input elements only.</p>
             </div>
             <hr>
 
@@ -65,33 +66,46 @@
             <div class="showCode">
                 <h3>Code:</h3>
                 <p>In AngularJS, the code is:</p>
-                <code ng-non-bindable>var app = angular.module("app", []);<br>
-                    app.controller("oneWay", ["$scope", function($scope) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.a = 10;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.b = 20;<br>
+                <code ng-non-bindable>
+                    app.controller("oneTime", ["$scope", function($scope) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.c = 10;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.d = 20;<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.doubleValues = function() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.c = $scope.c * 2;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.d = $scope.d * 2;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.sumValues = function() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.sum = $scope.c + $scope.d;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
                     }]);</code>
 
                 <hr><hr>
-                <p>In the HTML, the code is:<br><br>
-                Using an Expression: <br>
-                    
-                <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is {{a}}, and the value of &lt;strong&gt;b&lt;/strong&gt; is {{b}}</code>.</p>
+                <p>In the HTML, the code is:</p>
+                <h4>This part changes</h4>
+                <code ng-non-bindable>
+                The value of &lt;strong&gt;c&lt;/strong&gt; is {{c}}, and the value of &lt;strong&gt;d&lt;/strong&gt; is {{d}}</code>.
                 <hr>
-                <p>Using ng-bind: <br>
-                    in the HTML, the code is:<br>
-                <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is &lt;span ng-bind="a"&gt;&lt;/span&gt;, and the value of &lt;strong&gt;b&lt;/strong&gt; is &lt;span ng-bind="b"&gt;&lt;/span&gt;</code>.</p>
-
+                <h4>This part does not change</h4>
+                <p>Notice the double colon in the expression.<br>
+                <code ng-non-bindable>
+                The &lt;em&gt;initial value&lt;/em&gt; of &lt;strong&gt;c&lt;/strong&gt; is {{::c}}, and the &lt;em&gt;initial value&lt;/em&gt; of &lt;strong&gt;d&lt;/strong&gt; is {{::d}}</code>.</p>
             </div>
-            <div class="oneWay controller" ng-controller="oneWay">
-                <h3>One-way binding Using Expressions</h3>
-                <p class="border">The value of <strong>a</strong> is {{a}}, and the value of <strong>b</strong> is {{b}}.</p>
+            <div class="oneTime controller" ng-controller="oneTime">
+                <h3>One-way binding (Using Expressions) - updates</h3>
+                <p class="border">The value of <strong>c</strong> is {{c}}, and the value of <strong>d</strong> is {{d}}.</p>
                 <hr>
-                <h3>One-way binding Using ng-bind</h3>
-                <p class="border">The value of <strong>a</strong> is <span ng-bind="a"></span>, and the value of <strong>b</strong> is <span ng-bind="b"></span>.</p>
+                <h3>One-Time binding (Using Expressions) - does not update</h3>
+                <p class="border">The <em>initial value</em> of <strong>c</strong> is {{::c}}, and the <em>initial value</em> of <strong>d</strong> is {{::d}}.</p>
+                <p>Notice how the values of c and d are not changing as we only want the initial value and that is what the code is saying.</p>
                 <hr>
-                <p>This can be useful in a situation where the UI is used only to display data generated elsewhere. 
-                    Here the user is not interacting with the data, ie. the data cannot be changed by the user.
-                    However the data will be updated in realtime as soon as it is modified in the models.</p>
+                <button class="action" ng-click="doubleValues()">Click to Double (c & d)</button>
+                <button class="action" type="button" ng-click="sumValues()">Get sum of C and D</button>
+                <p>The sum of the <em>current</em> <strong>c</strong> and <em>current</em> <strong>d</strong> is:</p>
+                <p class="border">Sum = {{sum}}</p>
+                <p><em>Note that sum does not update when the values of c and d is doubled. You need to run the method to sum the new values by clicking the appropriate button above.</em></p>
+                <p>This can be useful in a situation where we need to keep tab of certain initial values to see how much they have changed.</p>
             </div>
             <hr>
         </div>

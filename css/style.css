@@ -183,3 +183,24 @@ p.border {
     box-shadow: 0 0 2px black;
     border-radius: 5px;
 }
+
+.action {
+    display: block;
+    background-color: dimgrey;
+    margin: 10px auto;
+    width: 200px;
+    padding: 15px 7px;
+    border-radius: 18px;
+    border: 2px solid slategray;
+    text-align: center;
+    color:white;
+    font-size: 14px;
+}
+.action:hover {
+    background-color: silver;
+    box-shadow: 1px 1px 10px silver;
+    color: black;
+}
+.action:active {
+    box-shadow: 1px 1px 10px seagreen;
+}
