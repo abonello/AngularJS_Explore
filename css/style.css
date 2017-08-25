@@ -8,14 +8,25 @@ body {
     border-radius: 20px;
     width: 100px;
     position: fixed;
-    left: 80px;
-    top: 30px;
+    left: 40px;
+    top: 15px;
     box-shadow: 0 0 5px white;
     background-color: green; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(ivory, yellowgreen, green, lightgrey); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(ivory, yellowgreen, green, lightgrey); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(ivory, yellowgreen, green, lightgrey); /* For Firefox 3.6 to 15 */
     background: linear-gradient(ivory, yellowgreen, green, lightgrey); /* Standard syntax */
+}
+@media (min-width: 500px) {
+    .homeButton {
+        left: 80px;
+        top: 30px;
+    }
+}
+@media (min-width: 1000px) {
+    .homeButton {
+        left: calc((100vw - 840px)/2); /* This will keep the button horizontally fixed for larger screens. */
+    }
 }
 
 .homeButton:hover {
