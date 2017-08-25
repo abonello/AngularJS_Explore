@@ -1,9 +1,18 @@
+body {
+    color: darkslategrey;
+}
+
 .main-container {
     background-color: lightgoldenrodyellow;
     width: 90%;
     max-width: 900px;
     min-width: 310px;
     margin: 0 auto;
+}
+
+.main-container h2 {
+    text-align: left;
+    padding-left: 50px;
 }
 header {
     text-align: center;
@@ -51,7 +60,7 @@ a {
 
 
 
-footer {
+footer p {
     padding: 20px;
     color: darkslategrey;
 }
@@ -81,4 +90,44 @@ footer {
 
 .tan {
     background-color: tan;
+}
+
+.app header {
+    
+}
+.app header h2 {
+    display: block;
+    background-color: rgba(135,206,250, 0.2);
+    text-align: center;
+    padding: 10px 2px;
+    box-shadow: 0 1px 5px rosybrown;
+}
+
+.showCode {
+    background-color: gainsboro;
+    padding: 50px;
+    margin: 10px 50px;
+    font-size: 16px;
+    box-shadow: 3px 5px 10px darkgray;
+    border-radius: 30% 0 50% 0;
+    max-width: 700px;
+}
+
+.controller h3 {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.controller p {
+    padding: 0 50px;
+    color: darkslategrey;
+}
+
+p.border {
+    padding: 5px 10px;
+    margin: 0 50px 40px 50px;
+    border: 1px solid black;
+    background-color: rgba(240,240,240, 0.2);
+    box-shadow: 0 0 2px black;
+    border-radius: 5px;
 }
