@@ -1,5 +1,7 @@
 # AngularJS Explore
 
+This site is published at [https://abonello.github.io/AngularJS_Explore/](https://abonello.github.io/AngularJS_Explore/).
+
 The reason behind this project is to learn and practice AngularJS.
 Items covered will be listed below:
 * One-way binding
