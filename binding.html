@@ -29,8 +29,17 @@
             <header><h2>One-Way Binding</h2></header>
             <div class="showCode">
                 <h3>Code:</h3>
-                <p>Using an Expression: <br>
-                    in the HTML, the code is:<br>
+                <p>In AngularJS, the code is:</p>
+                <code ng-non-bindable>var app = angular.module("app", []);<br>
+                    app.controller("oneWay", ["$scope", function($scope) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.a = 10;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.b = 20;<br>
+                    }]);</code>
+
+                <hr><hr>
+                <p>In the HTML, the code is:<br><br>
+                Using an Expression: <br>
+                    
                 <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is {{a}}, and the value of &lt;strong&gt;b&lt;/strong&gt; is {{b}}</code>.</p>
                 <hr>
                 <p>Using ng-bind: <br>
