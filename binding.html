@@ -35,7 +35,7 @@
                     app.controller("oneWay", ["$scope", function($scope) {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;$scope.a = 10;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;$scope.b = 20;<br>
-                    }]);</code>
+                    }])</code>
 
                 <hr><hr>
                 <p>In the HTML, the code is:<br><br>
@@ -79,7 +79,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;$scope.sumValues = function() {<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.sum = $scope.c + $scope.d;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;};<br>
-                    }]);</code>
+                    }])</code>
 
                 <hr><hr>
                 <p>In the HTML, the code is:</p>
@@ -97,6 +97,7 @@
                 <p class="border">The value of <strong>c</strong> is {{c}}, and the value of <strong>d</strong> is {{d}}.</p>
                 <hr>
                 <h3>One-Time binding (Using Expressions) - does not update</h3>
+                <p>This uses double colon <strong>::</strong></p>
                 <p class="border">The <em>initial value</em> of <strong>c</strong> is {{::c}}, and the <em>initial value</em> of <strong>d</strong> is {{::d}}.</p>
                 <p>Notice how the values of c and d are not changing as we only want the initial value and that is what the code is saying.</p>
                 <hr>
@@ -108,8 +109,66 @@
                 <p>This can be useful in a situation where we need to keep tab of certain initial values to see how much they have changed.</p>
             </div>
             <hr>
-        </div>
 
+
+
+
+
+
+            <header><h2>Two-Way Binding</h2></header>
+            <div class="showCode">
+                <h3>Code:</h3>
+                <p>In AngularJS, the code is:</p>
+                <code ng-non-bindable>
+                    app.controller("twoWay", ["$scope", function($scope) {<br>
+                    &nbsp;&nbsp;$scope.e = 10;<br>
+                    &nbsp;&nbsp;$scope.f = 15;<br>
+                    <br>
+                    &nbsp;&nbsp;$scope.addNumbers = function() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.sum = parseInt($scope.e) + parseInt($scope.f);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;//The parsing is required as we will be getting input from user as a string.<br>
+                    &nbsp;&nbsp;};<br>
+                    }])</code>
+
+                <hr><hr>
+                <p>In the HTML, the code is:</p>
+                
+                <h4>Display of current values of e and f</h4>
+                <p>These update in real-time as the user types into the input boxes below.</p>
+                <code ng-non-bindable>
+                The value of &lt;strong&gt;e&lt;/strong&gt; is {{e}}, and the value of &lt;strong&gt;f&lt;/strong&gt; is {{f}}.</code>
+                
+                <h4>Input of new values for e and f</h4>
+                <code ng-non-bindable>
+                New value for e: &lt;input type="text" ng-model="e"/&gt;<br>
+                New value for f: &lt;input type="text" ng-model="f"/&gt;</code>
+                
+                <h4>Display of the sum</h4>
+                <code ng-non-bindable>
+                Sum = {{sum}}</code>
+            </div>
+
+            <div class="oneTime controller" ng-controller="twoWay">
+                <h3>Two-way binding (Using Expressions) - This is the output</h3>
+                <p>The values of e and f update in real-time as the user types into the input boxes below.</p>
+                <p class="border">The value of <strong>e</strong> is {{e}}, and the value of <strong>f</strong> is {{f}}.</p>
+                <hr>
+                <h3>Two-way binding - This acts as input</h3>
+                <p>This uses <strong>ng-model</strong></p>
+                <p>New value for e: <input type="text" ng-model="e"/></p>
+                <p>New value for f: <input type="text" ng-model="f"/></p>
+                <p>Notice how the values of e and f in the output display above change automatically as we type in the new values.</p>
+                <hr>
+                <button class="action" type="button" ng-click="addNumbers()">Add e and f</button>
+
+
+                <p>The sum of the <em>current</em> <strong>e</strong> and <em>current</em> <strong>f</strong> is:</p>
+                <p class="border">Sum = {{sum}}</p>
+                <p><em>Note that sum does not update when the values of e and f is changed. You need to run the method to sum the new values by clicking the button above.</em></p>
+                
+            </div>
+            <hr>
+        </div>
 
         <footer>
             <br><hr><br>
