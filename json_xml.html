@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJS Binding</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="js/binding.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="main-container">
+
+        <header>
+            <a href="index.html"><div class="homeButton"><strong>Home</strong></div></a>
+            <h1>JSON / XML</h1>
+            <h2>
+                Get an input data from user and convert it to JSON and XML format
+            </h2>
+            <hr>
+            <br>
+        </header>
+
+        <div class="app" ng-app="app">
+            <header><h2>Getting the Input</h2></header>
+            <div class="showCode">
+                <h3>Code:</h3>
+                <p>In AngularJS, the code is:</p>
+                <code ng-non-bindable>var app = angular.module("app", []);<br>
+                    app.controller("oneWay", ["$scope", function($scope) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.a = 10;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;$scope.b = 20;<br>
+                    }])</code>
+
+                <hr><hr>
+                <p>In the HTML, the code is:<br><br>
+                Using an Expression: <br>
+                    
+                <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is {{a}}, and the value of &lt;strong&gt;b&lt;/strong&gt; is {{b}}</code>.</p>
+                <hr>
+                <p>Using ng-bind: <br>
+                    in the HTML, the code is:<br>
+                <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is &lt;span ng-bind="a"&gt;&lt;/span&gt;, and the value of &lt;strong&gt;b&lt;/strong&gt; is &lt;span ng-bind="b"&gt;&lt;/span&gt;</code>.</p>
+
+            </div>
+            <div class="oneWay controller" ng-controller="oneWay">
+                <h3>One-way binding Using Expressions</h3>
+                <p class="border">The value of <strong>a</strong> is {{a}}, and the value of <strong>b</strong> is {{b}}.</p>
+                <hr>
+                <h3>One-way binding Using ng-bind</h3>
+                <p class="border">The value of <strong>a</strong> is <span ng-bind="a"></span>, and the value of <strong>b</strong> is <span ng-bind="b"></span>.</p>
+                <hr>
+                <p>This can be useful in a situation where the UI is used only to display data generated elsewhere. 
+                    Here the user is not interacting with the data, ie. the data cannot be changed by the user. It is <strong>Read-Only</strong>.
+                    However the data will be updated in realtime as soon as it is modified in the models.<br>
+                    Note that <strong>ng-bind</strong> can be used with non-input elements only.</p>
+            </div>
+            <hr>
+
+            
+        </div>
+
+        <footer>
+            <br><hr><br>
+            <p>Created and coded by Anthony Bonello, 2017.</p>
+        </footer>
+
+    </div>
+    
+</body>
+</html>
