@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AngularJS Binding</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-    <script src="js/binding.js"></script>
+    <script src="js/json_xml.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -23,8 +23,8 @@
         </header>
 
         <div class="app" ng-app="app">
-            <header><h2>Getting the Input</h2></header>
-            <div class="showCode">
+            <header><h2>Getting the Input from the User</h2></header>
+            <!--div class="showCode">
                 <h3>Code:</h3>
                 <p>In AngularJS, the code is:</p>
                 <code ng-non-bindable>var app = angular.module("app", []);<br>
@@ -43,8 +43,35 @@
                     in the HTML, the code is:<br>
                 <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is &lt;span ng-bind="a"&gt;&lt;/span&gt;, and the value of &lt;strong&gt;b&lt;/strong&gt; is &lt;span ng-bind="b"&gt;&lt;/span&gt;</code>.</p>
 
-            </div>
-            <div class="oneWay controller" ng-controller="oneWay">
+            </div-->
+            <div class="oneWay controller" ng-controller="-----">
+                
+                <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br><br><br><br><br>
+
+                <form action="">
+                    
+
+                    <label><strong>Choose Entry Type:</strong><br>
+                    <input type="radio" name="data" id="new" value="new" checked> New Data Item&nbsp;&nbsp;
+                    <input type="radio" name="data" id="property" value="property"> Data Item Property</label>
+                    <br><hr>
+
+                    <label><strong>Enter data:</strong><br>
+                    Key: <input type="text" name="key"> &nbsp;&nbsp; 
+                    Value: <input type="text" name="value"></label>
+                    <br>
+
+                    <input type="submit" value="Submit">
+                </form>
+
+                <hr>
+
+                <header><h2>Getting the Input from the User</h2></header>
+
+                <hr>
+                
+                <h2>The parts below are placeholders</h2>
+
                 <h3>One-way binding Using Expressions</h3>
                 <p class="border">The value of <strong>a</strong> is {{a}}, and the value of <strong>b</strong> is {{b}}.</p>
                 <hr>

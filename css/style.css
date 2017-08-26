@@ -204,3 +204,12 @@ p.border {
 .action:active {
     box-shadow: 1px 1px 10px seagreen;
 }
+
+form {
+    padding: 10px 20px 40px 20px;
+    background: whitesmoke;
+    border: 1px solid slategrey;
+    margin: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0px 5px ivory, 2px 5px 4px slategray;
+}
