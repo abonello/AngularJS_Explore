@@ -44,16 +44,23 @@
                 <code ng-non-bindable>The value of &lt;strong&gt;a&lt;/strong&gt; is &lt;span ng-bind="a"&gt;&lt;/span&gt;, and the value of &lt;strong&gt;b&lt;/strong&gt; is &lt;span ng-bind="b"&gt;&lt;/span&gt;</code>.</p>
 
             </div-->
-            <div class="oneWay controller" ng-controller="-----">
-                
+            <div class="jsonXML controller" ng-controller="data">
+                <p>This example below is meant as a coding exercise. As such it will be difficult, if not impossible, to use with overly nested JSON or XML data.</p>
+                <h2>What is a JSON?</h2>
+                <p>An object is an unordered set of name/value pairs. An object begins with { (left brace) and ends with } (right brace). Each name is followed by : (colon) and the name/value pairs are separated by , (comma).</p>
+                <p>An array is an ordered collection of values. An array begins with [ (left bracket) and ends with ] (right bracket). Values are separated by , (comma).</p>
+                <p>A value can be a string in double quotes, or a number, or true or false or null, or an object or an array. These structures can be nested.</p>
+                <p>A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes. A character is represented as a single character string. A string is very much like a C or Java string.</p>
+                <p>A number is very much like a C or Java number, except that the octal and hexadecimal formats are not used.</p>
                 <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br><br><br><br><br>
+                
 
                 <form action="">
                     
 
                     <label><strong>Choose Entry Type:</strong><br>
-                    <input type="radio" name="data" id="new" value="new" checked> New Data Item&nbsp;&nbsp;
-                    <input type="radio" name="data" id="property" value="property"> Data Item Property</label>
+                    <input type="radio" name="dataType" id="new" value="new" placeholder="Enter Key" checked> New Data Item&nbsp;&nbsp;
+                    <input type="radio" name="dataType" id="property" value="property" placeholder="Enter Corresponding Value"> Data Item Property</label>
                     <br><hr>
 
                     <label><strong>Enter data:</strong><br>
@@ -66,10 +73,10 @@
 
                 <hr>
 
-                <header><h2>Getting the Input from the User</h2></header>
-
+                <header><h2>Temporary Display for User Input</h2></header>
+                <p>The <strong>Key</strong> that was enterd is <em>{{key}}</em>, and the related <strong>Value</strong> is <em>{{value}}</em>.</p>   
                 <hr>
-                
+
                 <h2>The parts below are placeholders</h2>
 
                 <h3>One-way binding Using Expressions</h3>
